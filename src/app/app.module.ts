@@ -9,13 +9,15 @@ import { HomeComponent } from './componentes/home/home.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
+import { JuegosComponent } from './pages/juegos/juegos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    QuienSoyComponent
+    QuienSoyComponent,
+    JuegosComponent
 
   ],
   imports: [
