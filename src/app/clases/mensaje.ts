@@ -5,5 +5,7 @@ export class Mensaje {
     public usuario:string ="";
     public mensaje:string ="";
     public estado:boolean =false;
+    //hora y fecha??
+    //a quien lo envio??
 
 }

@@ -4,20 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './componentes/login/login.component';
-import { HomeComponent } from './componentes/home/home.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { JuegosComponent } from './pages/juegos/juegos.component';
+import { HomeComponent } from './pages/home/home.component';
+import { RegistroComponent } from './pages/registro/registro.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    HomeComponent,
     QuienSoyComponent,
-    JuegosComponent
+    JuegosComponent,
+    HomeComponent,
+    RegistroComponent,
+    LoginComponent
 
   ],
   imports: [

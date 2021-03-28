@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import {AngularFirestore,AngularFirestoreCollection} from "@angular/fire/firestore";
 import { Mensaje } from '../clases/mensaje';
+import { Usuario } from '../clases/usuario';
 
 
 @Injectable({
@@ -39,6 +40,9 @@ export class MensajeFireService {
    {
       return this.referenciaAlaColeccion.doc(id).update(datos);
    }
+
+
+
 
 
 }

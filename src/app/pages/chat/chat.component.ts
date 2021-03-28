@@ -20,7 +20,7 @@ export class ChatComponent implements OnInit {
 
   public Enviar()
   {
-    this.mensaje.usuario=this.miServicioUsuario.usuarioVigente;
+    //this.mensaje.usuario=this.miServicioUsuario.usuarioVigente;
 
     this.miServicio.AgregarUno(this.mensaje).then(()=>{
 
