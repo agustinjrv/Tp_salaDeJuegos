@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 
+
 const routes: Routes = [
   {path:"usuario",component:QuienSoyComponent},
   {path:"chat",component:ChatComponent},
@@ -20,4 +21,14 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule
+{ 
+    public constructor()
+    {
+
+    }
+
+  
+
+    
+}
