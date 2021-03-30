@@ -27,7 +27,6 @@ import { LoginComponent } from './pages/login/login.component';
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
