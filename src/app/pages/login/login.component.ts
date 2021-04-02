@@ -24,15 +24,15 @@ export class LoginComponent implements OnInit {
   public Login()
   {
     let listaUsuarios=this.servicioUsuario.TraerTodos().valueChanges();
-  
+                                
      listaUsuarios.forEach(i => {
         i.forEach(j => {
           
-          if((this.unUsuario.correo.toString()== j.correo.toString()) && (this.unUsuario.contrasenia.toString() ==j.contrasenia.toString()))
-          {
-            this.servicioAutentificacion.estaLogiado=this.unUsuario;
-            this.router.navigateByUrl("juegos");
-          }
+            if((this.unUsuario.correo.toString()== j.correo.toString()) && (this.unUsuario.contrasenia.toString() ==j.contrasenia.toString()))
+            {
+              this.servicioAutentificacion.estaLogiado=this.unUsuario;
+              this.router.navigateByUrl("juegos");
+            }
         });
      });
   
