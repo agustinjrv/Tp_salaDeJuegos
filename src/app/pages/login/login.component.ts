@@ -4,11 +4,16 @@ import { Usuario } from 'src/app/clases/usuario';
 import { AutentificacionService } from 'src/app/services/autentificacion.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
+
+
 export class LoginComponent implements OnInit {
 
   public unUsuario:Usuario;

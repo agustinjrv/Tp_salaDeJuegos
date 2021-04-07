@@ -1,28 +1,31 @@
 
+<h6 style="font-size: 30px;">Login</h6>
 
-<h6 class="h1">Login</h6>
 
 <section class="form-control h-100 pb-3 bg-primary" >
-    <label for="textCorreo" class="text-white">Correo:</label>
-    <div class="form-row ">
-        <div class="col input-group mb-2">
-            <label for="textCorreo" class="mt-1 fas fa-envelope input-group-text"></label>
-            <input type="text" id="textCorreo" [(ngModel)]="unUsuario.correo" class="form-control form-text"  placeholder="Ingrese su correo">
+    <form action="">
+        <label for="textCorreo" class="text-white">Correo:</label>
+        <div class="form-row ">
+            <div class="col input-group mb-2">
+                <label for="textCorreo" class="mt-1 fas fa-envelope input-group-text"></label>
+                <input type="text" id="textCorreo" [(ngModel)]="unUsuario.correo" class="form-control form-text"  placeholder="Ingrese su correo">
+            </div>
         </div>
-    </div>
-    
-    
-    <label for="textContraseña" class="text-white">Contraseña:</label>
-    <div class="form-row ">
-        <div class="col input-group mb-2">
-            <label for="textContraseña" class="mt-1 fas fa-key input-group-text"></label>
-            <input type="password" id="textContraseña" [(ngModel)]="unUsuario.contrasenia"  class="form-control form-text"  placeholder="Ingrese su correo">
+        
+        
+        <label for="textContraseña" class="text-white">Contraseña:</label>
+        <div class="form-row ">
+            <div class="col input-group mb-2">
+                <label for="textContraseña" class="mt-1 fas fa-key input-group-text"></label>
+                <input type="password" id="textContraseña" [(ngModel)]="unUsuario.contrasenia"  class="form-control form-text"  placeholder="Ingrese su correo">
+            </div>
         </div>
-    </div>
-    
-    <br>
-    <button class="btn btn-success btn-block" (click)="Login()" >Ingresar</button>
+        
+        <br>
+        <button class="btn btn-success btn-block" (click)="Login()" >Ingresar</button>
+    </form>
 </section>
+
 
 <br>
 <p>No esta registrado?</p> 
