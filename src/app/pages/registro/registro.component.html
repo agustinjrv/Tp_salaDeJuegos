@@ -1,46 +1,54 @@
-<h6 style="font-size: 30px;">Crear Cuenta</h6>
 
-<section class="form-control h-100 pb-3 bg-primary">
-    <label for="textUsuario" class="text-white">Nombre Usuario:</label>
-    <div class="form-row ">
-        <div class="col input-group mb-2">
-            <label for="textUsuario" class="mt-1 fas fa-user input-group-text"></label>
-            <input type="text" id="textUsuario"  [(ngModel)]="nuevoUsuario.nombreUsuario"  class="form-control form-text"  placeholder="Ingrese su nombre de usuario">
+
+<section class="container">
+    <br>
+    <h6 style="font-size: 30px;">Crear Cuenta</h6>
+    <form action="" class="form-control h-100 pb-3 bg-primary">
+
+        <label for="textUsuario" class="text-white">Nombre Usuario:</label>
+        <div class="form-row ">
+            <div class="col input-group mb-2">
+                <label for="textUsuario" class="mt-1 fas fa-user input-group-text"></label>
+                <input type="text" id="textUsuario"  [(ngModel)]="nuevoUsuario.nombreUsuario"  class="form-control form-text"  placeholder="Ingrese su nombre de usuario">
+            </div>
         </div>
-    </div>
-    
-    <label for="textEdad" class="text-white">Edad:</label>
-    <div class="form-row ">
-        <div class="col input-group mb-2">
-            <label for="textEdad"  class="mt-1 pt-2 fas  fa-lg fa-walking input-group-text"></label>
-            <input type="number" id="textEdad" [(ngModel)]="nuevoUsuario.edad" class="form-control form-text"  placeholder="Ingrese su edad">
+        
+        <label for="textEdad" class="text-white">Edad:</label>
+        <div class="form-row ">
+            <div class="col input-group mb-2">
+                <label for="textEdad"  class="mt-1 pt-2 fas  fa-lg fa-walking input-group-text"></label>
+                <input type="number" id="textEdad" [(ngModel)]="nuevoUsuario.edad" class="form-control form-text"  placeholder="Ingrese su edad">
+            </div>
         </div>
-    </div>
-    
-    <label for="textCorreo" class="text-white">Correo:</label>
-    <div class="form-row ">
-        <div class="col input-group mb-2">
-            <label for="textCorreo" class="mt-1 fas fa-envelope input-group-text"></label>
-            <input type="text" id="textCorreo" [(ngModel)]="nuevoUsuario.correo" class="form-control form-text"  placeholder="Ingrese su correo">
+        
+        <label for="textCorreo" class="text-white">Correo:</label>
+        <div class="form-row ">
+            <div class="col input-group mb-2">
+                <label for="textCorreo" class="mt-1 fas fa-envelope input-group-text"></label>
+                <input type="text" id="textCorreo" [(ngModel)]="nuevoUsuario.correo" class="form-control form-text"  placeholder="Ingrese su correo">
+            </div>
         </div>
-    </div>
-    
-    
-    <label for="textContraseña" class="text-white">Contraseña:</label>
-    <div class="form-row ">
-        <div class="col input-group mb-2">
-            <label for="textContraseña" class="mt-1 fas fa-key input-group-text"></label>
-            <input type="password" id="textContraseña" [(ngModel)]="nuevoUsuario.contrasenia" class="form-control form-text"  placeholder="Ingrese su contraseña">
+        
+        
+        <label for="textContraseña" class="text-white">Contraseña:</label>
+        <div class="form-row ">
+            <div class="col input-group mb-2">
+                <label for="textContraseña" class="mt-1 fas fa-key input-group-text"></label>
+                <input type="password" id="textContraseña" [(ngModel)]="nuevoUsuario.contrasenia" class="form-control form-text"  placeholder="Ingrese su contraseña">
+            </div>
         </div>
-    </div>
+        <br>
+
+        <button class="btn btn-success btn-block" (click)="AgregarUno()" >Registrarse!!!</button>
+
+    </form>
+
+    
     <br>
 
-    <button class="btn btn-success btn-block" (click)="AgregarUno()" >Registrarse!!!</button>
+    <p>Ya tiene una cuenta?</p> <p>Ir a <a href="login">login</a></p>
+    
 
 </section>
 
 
-
-<br>
-
-<p>Ya tiene una cuenta?</p> <p>Ir a <a href="login">login</a></p>

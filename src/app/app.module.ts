@@ -12,9 +12,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import {MatInputModule} from '@angular/material/input';
 import { PiedraPapelTijeraComponent } from './pages/piedra-papel-tijera/piedra-papel-tijera.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -25,16 +26,13 @@ import { PiedraPapelTijeraComponent } from './pages/piedra-papel-tijera/piedra-p
     RegistroComponent,
     LoginComponent,
     PiedraPapelTijeraComponent
-
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatInputModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

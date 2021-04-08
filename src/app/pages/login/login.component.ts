@@ -12,11 +12,11 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 
 
-
-
 export class LoginComponent implements OnInit {
 
   public unUsuario:Usuario;
+
+  
 
   constructor(private servicioUsuario:UsuariosService,private router:Router,private servicioAutentificacion:AutentificacionService) 
   { 
@@ -29,7 +29,8 @@ export class LoginComponent implements OnInit {
   public Login()
   {
     let listaUsuarios=this.servicioUsuario.TraerTodos().valueChanges();
-                                
+                    
+  
      listaUsuarios.forEach(i => {
         i.forEach(j => {
           
@@ -42,8 +43,6 @@ export class LoginComponent implements OnInit {
      });
   
   }
-
-  
- 
-
 }
+
+
