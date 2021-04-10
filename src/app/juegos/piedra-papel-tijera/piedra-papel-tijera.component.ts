@@ -46,12 +46,13 @@ export class PiedraPapelTijeraComponent implements OnInit {
 
   public GenerarRespuestaMaquina()
   {    
-      this.jugador2.seleccion=Math.floor(Math.random() * (3 - 1)) + 1; 
+      this.jugador2.seleccion=1//Math.floor(Math.random() * (3 - 1)) + 1; 
   }
 
   public Jugar() ///en html cambiar por boton play
   {
       this.GenerarRespuestaMaquina();
+      
 
       if(this.jugador1.seleccion == EpiedraPapelTijera.piedra)
       {
@@ -59,19 +60,20 @@ export class PiedraPapelTijeraComponent implements OnInit {
           {
               case EpiedraPapelTijera.piedra:
                   
+                $("#imagenQueCambia").attr("src",PATHIMAGENES + "/piedra-piedra.jpg");
                   this.Empate();
   
                   break;
   
               case EpiedraPapelTijera.papel:
                 
-                    
+                $("#imagenQueCambia").attr("src",PATHIMAGENES + "/piedra-papel.jpg");
                   this.GanoJugador2();
                   
                   break;
   
               case EpiedraPapelTijera.tijera:
-                  
+                $("#imagenQueCambia").attr("src",PATHIMAGENES + "/piedra-tijera.jpg");
                    this.GanoJugador1()
                   break;
           }
@@ -81,19 +83,21 @@ export class PiedraPapelTijeraComponent implements OnInit {
           switch (this.jugador2.seleccion) 
           {
               case EpiedraPapelTijera.piedra:
-                  
+                
+                  $("#imagenQueCambia").attr("src",PATHIMAGENES + "/papel-piedra.jpg");
                   this.GanoJugador1();
   
                   break;
   
               case EpiedraPapelTijera.papel:
-
+                  
+                $("#imagenQueCambia").attr("src",PATHIMAGENES + "/papel-papel.jpg");
                   this.Empate();
                   
                   break;
   
               case EpiedraPapelTijera.tijera:
-                  
+                $("#imagenQueCambia").attr("src",PATHIMAGENES + "/papel-tijera.jpg");
                  this.GanoJugador2();
                   break;
           }
@@ -103,19 +107,20 @@ export class PiedraPapelTijeraComponent implements OnInit {
           switch (this.jugador2.seleccion) 
           {
               case EpiedraPapelTijera.piedra:
-                  
+                $("#imagenQueCambia").attr("src",PATHIMAGENES + "/tijera-piedra.jpg");
                   this.GanoJugador2();
   
                   break;
   
               case EpiedraPapelTijera.papel:
+                $("#imagenQueCambia").attr("src",PATHIMAGENES + "/tijera-papel.jpg");
 
                   this.GanoJugador1();
                   
                   break;
   
               case EpiedraPapelTijera.tijera:
-                  
+                $("#imagenQueCambia").attr("src",PATHIMAGENES + "/tijera-tijera.jpeg");
                  this.Empate();
                   break;
           }
