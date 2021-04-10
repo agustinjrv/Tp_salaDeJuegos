@@ -1,74 +1,61 @@
 import { Component, OnInit } from '@angular/core';
-import { PiedraPapelTijera } from 'src/app/clases/piedra-papel-tijera';
 import { EpiedraPapelTijera } from 'src/app/enumerados/epiedra-papel-tijera.enum';
+import { JugadorPiedraPapelTijera } from '../clases/jugador-piedra-papel-tijera';
+
+
+const PATHIMAGENES:string ="../../../assets/imagenes/piedra-papel-tijera";
 
 @Component({
   selector: 'app-piedra-papel-tijera',
   templateUrl: './piedra-papel-tijera.component.html',
   styleUrls: ['./piedra-papel-tijera.component.css']
 })
-export class PiedraPapelTijeraComponent implements OnInit {
 
-  public estado:Boolean;
-  public seleccionJugador1:EpiedraPapelTijera;
-  public seleccionJugador2:EpiedraPapelTijera;
-  public victoriasJugador1:number;
-  public victoriasJugador2:number;
+export class PiedraPapelTijeraComponent implements OnInit {
+    
+    
+
+  public jugador1:JugadorPiedraPapelTijera;
+  public jugador2:JugadorPiedraPapelTijera;
   
   public constructor()
   {
-      this.estado=false;
-      this.seleccionJugador1=EpiedraPapelTijera.piedra;
-      this.seleccionJugador2=EpiedraPapelTijera.piedra;
-      this.victoriasJugador1=0;
-      this.victoriasJugador2=0;
-      
+      this.jugador1 = new JugadorPiedraPapelTijera();
+      this.jugador2 = new JugadorPiedraPapelTijera();
   }
   ngOnInit(): void {
   }
 
-  public SeleccionarPiedra()
+  public Piedra()
   {
-    this.seleccionJugador1=EpiedraPapelTijera.piedra;
+      $("#imagenQueCambia").attr("src",PATHIMAGENES + "/piedra.png") ;
+    this.jugador1.seleccion=EpiedraPapelTijera.piedra;
   }
 
-  public SeleccionarPapel()
+  public Papel()
   {
-    this.seleccionJugador1=EpiedraPapelTijera.papel;
+    $("#imagenQueCambia").attr("src",PATHIMAGENES + "/papel.png");
+    this.jugador1.seleccion=EpiedraPapelTijera.papel;
   }
 
-  public SeleccionarTijera()
+  public Tijera()
   {
-    this.seleccionJugador1=EpiedraPapelTijera.tijera;
+    $("#imagenQueCambia").attr("src",PATHIMAGENES + "/tijera.png");
+    this.jugador1.seleccion=EpiedraPapelTijera.tijera;
   }
 
   public GenerarRespuestaMaquina()
   {    
-      this.seleccionJugador2=Math.floor(Math.random() * (3 - 1)) + 1; 
-      
-      switch (this.seleccionJugador2) 
-      {
-          case EpiedraPapelTijera.piedra:
-
-              break;
-
-          case EpiedraPapelTijera.papel:
-              
-              break;
-
-          case EpiedraPapelTijera.tijera:
-              
-              break;
-      
-          
-      }
+      this.jugador2.seleccion=Math.floor(Math.random() * (3 - 1)) + 1; 
   }
 
-  public CalcularResultados()
+  public Jugar() ///en html cambiar por boton play
   {
-      if(this.seleccionJugador1 == EpiedraPapelTijera.piedra)
+      this.GenerarRespuestaMaquina();
+
+      if(this.jugador1.seleccion == EpiedraPapelTijera.piedra)
       {
-          switch (this.seleccionJugador2) 
+          switch (this.jugador2.seleccion) 
           {
               case EpiedraPapelTijera.piedra:
                   
@@ -77,7 +64,8 @@ export class PiedraPapelTijeraComponent implements OnInit {
                   break;
   
               case EpiedraPapelTijera.papel:
-
+                
+                    
                   this.GanoJugador2();
                   
                   break;
@@ -88,9 +76,9 @@ export class PiedraPapelTijeraComponent implements OnInit {
                   break;
           }
       }
-      else if(this.seleccionJugador1 == EpiedraPapelTijera.papel)
+      else if(this.jugador1.seleccion == EpiedraPapelTijera.papel)
       {
-          switch (this.seleccionJugador2) 
+          switch (this.jugador2.seleccion) 
           {
               case EpiedraPapelTijera.piedra:
                   
@@ -110,9 +98,9 @@ export class PiedraPapelTijeraComponent implements OnInit {
                   break;
           }
       }
-      else if(this.seleccionJugador1 == EpiedraPapelTijera.tijera)
+      else if(this.jugador1.seleccion == EpiedraPapelTijera.tijera)
       {
-          switch (this.seleccionJugador2) 
+          switch (this.jugador2.seleccion) 
           {
               case EpiedraPapelTijera.piedra:
                   
@@ -137,20 +125,21 @@ export class PiedraPapelTijeraComponent implements OnInit {
 //cambiar por mostar resultado en lo posible
   public GanoJugador1()
   {
-      alert("Ganaste!!! \nJugador1= " + this.seleccionJugador1.toString() +
-                       "\njugador2= " + this.seleccionJugador2.toString() );
+      
+      alert("Ganaste!!! \nJugador1= " + EpiedraPapelTijera[this.jugador1.seleccion] +
+                       "\njugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]);
   }
 
   public GanoJugador2()
   {
-      alert("Perdiste!!! \nJugador1= " + this.seleccionJugador1.toString() +
-                        "\njugador2= " + this.seleccionJugador2.toString() );
+      alert("Perdiste!!!  \nJugador1= " + EpiedraPapelTijera[this.jugador1.seleccion] +
+                        "\njugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]);
   }
 
   public Empate()
   {
-      alert("Empate!!! \nJugador1= " + this.seleccionJugador1.toString() +
-                      "\njugador2= " + this.seleccionJugador2);
+      alert("Empate!!!  \nJugador1= " + EpiedraPapelTijera[this.jugador1.seleccion] +
+                      "\njugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]);
   }
 
 

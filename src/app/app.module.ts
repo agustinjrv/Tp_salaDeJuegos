@@ -7,12 +7,11 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
-import { JuegosComponent } from './pages/juegos/juegos.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PiedraPapelTijeraComponent } from './pages/piedra-papel-tijera/piedra-papel-tijera.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 
 
@@ -21,11 +20,10 @@ import { PiedraPapelTijeraComponent } from './pages/piedra-papel-tijera/piedra-p
   declarations: [
     AppComponent,
     QuienSoyComponent,
-    JuegosComponent,
     HomeComponent,
     RegistroComponent,
     LoginComponent,
-    PiedraPapelTijeraComponent
+    PageNotFoundComponent,
     ],
   imports: [
     BrowserModule,
