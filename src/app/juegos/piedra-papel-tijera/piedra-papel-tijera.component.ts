@@ -13,8 +13,6 @@ const PATHIMAGENES:string ="../../../assets/imagenes/piedra-papel-tijera";
 
 export class PiedraPapelTijeraComponent implements OnInit {
     
-    
-
   public jugador1:JugadorPiedraPapelTijera;
   public jugador2:JugadorPiedraPapelTijera;
   
@@ -46,7 +44,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
 
   public GenerarRespuestaMaquina()
   {    
-      this.jugador2.seleccion=1//Math.floor(Math.random() * (3 - 1)) + 1; 
+      this.jugador2.seleccion=Math.floor(Math.random() * (3 - 0)) + 0; 
   }
 
   public Jugar() ///en html cambiar por boton play
@@ -130,21 +128,22 @@ export class PiedraPapelTijeraComponent implements OnInit {
 //cambiar por mostar resultado en lo posible
   public GanoJugador1()
   {
-      
-      alert("Ganaste!!! \nJugador1= " + EpiedraPapelTijera[this.jugador1.seleccion] +
-                       "\njugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]);
+    this.jugador1.victorias++;
+    $("#resultado").html("Ganaste!!! <br>Jugador1= " + EpiedraPapelTijera[this.jugador1.seleccion] +
+                                    "<br>Jugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]); 
   }
 
   public GanoJugador2()
   {
-      alert("Perdiste!!!  \nJugador1= " + EpiedraPapelTijera[this.jugador1.seleccion] +
-                        "\njugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]);
+    this.jugador2.victorias++;
+    $("#resultado").html("Perdiste!!! <br>Jugador1= " + EpiedraPapelTijera[this.jugador1.seleccion] +
+                                      "<br>Jugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]);
   }
 
   public Empate()
   {
-      alert("Empate!!!  \nJugador1= " + EpiedraPapelTijera[this.jugador1.seleccion] +
-                      "\njugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]);
+    $("#resultado").html("Empate!!!  <br>Jugador1= " + EpiedraPapelTijera[this.jugador1.seleccion] +
+                                    "<br>Jugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]);
   }
 
 

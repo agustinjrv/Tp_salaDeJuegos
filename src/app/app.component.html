@@ -2,11 +2,16 @@
   
   <header>
       <nav class="navbar navbar-expand navbar-dark bg-dark ">
-        <a routerLink="home" class="navbar-brand">Sala de Juegos</a><!--evento colocar mouse encima-->>
-        <div class="navbar-nav mr-auto">
-          <li class="nav-item"><a class="nav-link" routerLink="login">Login</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="registro">Registrarse</a></li>
-        </div>    
+        <div class="navbar-collapse">
+
+            <button routerLink="home" class="btn btn-outline-primary">Sala de Juegos</button><!--evento colocar mouse encima-->
+            
+              <ul class="navbar-nav mr-auto " >
+                  <li class="nav-item"><a class="nav-link">home</a> </li>
+              </ul>               
+                <a class="nav-item"><a class="nav-link" routerLink="login">Login</a></a>
+                <a class="nav-item"><a class="nav-link" routerLink="registro">Registrarse</a></a>
+        </div>
       </nav>
   
       
