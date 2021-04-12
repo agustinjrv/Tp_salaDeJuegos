@@ -130,7 +130,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
   {
     this.jugador1.victorias++;
     $("#resultado").html("Ganaste!!! <br>Jugador1= " + EpiedraPapelTijera[this.jugador1.seleccion] +
-                                    "<br>Jugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]); 
+    "<br>Jugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]); 
   }
 
   public GanoJugador2()

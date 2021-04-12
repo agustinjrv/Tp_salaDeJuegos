@@ -4,20 +4,27 @@
       <nav class="navbar navbar-expand navbar-dark bg-dark ">
         <div class="navbar-collapse">
 
-            <button routerLink="home" class="btn btn-outline-primary">Sala de Juegos</button><!--evento colocar mouse encima-->
+            <button routerLink="home" class="btn btn-outline-danger">Sala de Juegos</button><!--evento colocar mouse encima-->
             
               <ul class="navbar-nav mr-auto " >
-                  <li class="nav-item"><a class="nav-link">home</a> </li>
-              </ul>               
-                <a class="nav-item"><a class="nav-link" routerLink="login">Login</a></a>
-                <a class="nav-item"><a class="nav-link" routerLink="registro">Registrarse</a></a>
+                  <li class="nav-item"><a class="text-primary ml-3">Home</a> </li>
+              </ul>       
+
+                <a class="nav-item"><button class="btn btn-outline-primary" routerLink="login">Login</button></a>
+                <a class="nav-item ml-3"><a class="btn btn-outline-success" routerLink="registro">Registrarse</a></a>
+  
+                
+              
+                
         </div>
       </nav>
-  
-      
-          <router-outlet ></router-outlet>
-      
+
   </header>
+      
+          <router-outlet></router-outlet>
+
+
+      
 
   
 

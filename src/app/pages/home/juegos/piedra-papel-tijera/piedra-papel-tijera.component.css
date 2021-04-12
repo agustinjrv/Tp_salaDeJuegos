@@ -1,0 +1,19 @@
+
+.animarImagen:hover{
+    display: inline-block;
+    margin: 0 0.5rem;
+    
+    animation: shakeX; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1.5s;
+    
+}
+
+.animarResultado{
+    display: inline-block;
+    margin: 0 0.5rem;
+    animation-timing-function: ease;
+    animation: fadeInDown; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1.5s;
+    
+    
+}
