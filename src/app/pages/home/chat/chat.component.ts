@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Mensaje } from 'src/app/clases/mensaje';
-import { MensajeFireService } from 'src/app/services/mensaje-fire.service';
 import { MensajeRealService } from 'src/app/services/mensaje-real.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
@@ -11,30 +11,65 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class ChatComponent implements OnInit {
 
-  public mensaje:Mensaje
+  public unMensaje:Mensaje;
+  public date:Date;
+  public variable:boolean;
+  public item$:Observable<any[]>;
   
-  constructor(private miServicio:MensajeFireService, private miServicioReal:MensajeRealService,private miServicioUsuario:UsuariosService) 
+  
+  constructor(private MensajeService:MensajeRealService,private miServicioUsuario:UsuariosService) 
   { 
-    this.mensaje=new Mensaje();
+    this.unMensaje=new Mensaje();
+    this.date = new Date();
+    this.variable=true;
+    this.item$ = MensajeService.ObtenerTodos().valueChanges();
   }
 
   public Enviar()
   {
     //this.mensaje.usuario=this.miServicioUsuario.usuarioVigente;
+    this.unMensaje.mensaje= $("#textMensaje").val()?.toString()??"";
+    this.unMensaje.usuario = localStorage.getItem("usuarioLogin")?.toString()??"";
+    this.unMensaje.horaYMin =  this.date.getHours() + ':' + this.date.getMinutes();
 
-    this.miServicio.AgregarUno(this.mensaje).then(()=>{
-
-      console.log("Se Envio el mensaje");
-
-    });
-
-    this.miServicioReal.CrearUno(this.mensaje).then(()=>{
+    this.MensajeService.AgregarUno(this.unMensaje).then(()=>{
 
       console.log("Se Envio el real");
-      
-    });
 
+
+     
+    });
+  }
+
+  public Traer()
+  {
+
+
+
+
+    /*
     
+      let listaMensajes= this.MensajeService.ObtenerTodos().valueChanges();
+
+      let html="";
+      
+      listaMensajes.forEach(i => {
+          i.forEach(j => {
+          console.log(j);
+                  html+='<section class="d-flex justify-content-end mb-4">';
+                  html+='<div class="msg_cotainer_send">';
+                  html+=j.mensaje;
+                  html+='<span class="msg_time_send">'+j.horaYMin+'</span></div>';
+                  html+='<div class="img_cont_msg">';
+                  html+='</section>';
+                  
+                  $("#chatMensajes").html(html);
+                  
+                });
+              });
+              */
+              
+
   }
 
   ngOnInit(): void {

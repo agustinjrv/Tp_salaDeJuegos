@@ -20,8 +20,10 @@ export class RegistroComponent implements OnInit {
   public AgregarUno()
   {
       this.servicioUsuario.AgregarUno(this.nuevoUsuario);
+      localStorage.setItem("usuarioLogin",this.nuevoUsuario.correo);
       alert("Se a registrado con exito");
-      this.router.navigateByUrl("juegos");
+      location.href ="home/juegos";
+      //this.router.navigateByUrl("juegos");
       
   }  
 

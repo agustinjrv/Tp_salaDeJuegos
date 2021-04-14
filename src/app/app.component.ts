@@ -15,15 +15,26 @@ export class AppComponent implements OnInit{
   public usuarioLogin:any;
   public constructor(private servicioAutentificacion:AutentificacionService,private router:Router)
   {
-      this.usuarioLogin=servicioAutentificacion.estaLogiado;  
+     
   }
 
   
   ngOnInit()
   { 
+    
+    this.usuarioLogin = localStorage.getItem("usuarioLogin");
+    console.log(this.usuarioLogin);
+
     if(!this.usuarioLogin)
     {
-      //this.router.navigateByUrl("login");
+      this.router.navigateByUrl("login");
     }
+  }
+
+  LogOut()
+  {
+      localStorage.removeItem("usuarioLogin");
+      location.href="login";
+      //this.router.navigateByUrl("login");
   }
 }

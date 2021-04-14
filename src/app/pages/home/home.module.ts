@@ -7,11 +7,14 @@ import { JuegosModule } from './juegos/juegos.module';
 import { JuegosRoutingModule } from './juegos/juegos-routing.module';
 
 
+
 @NgModule({
   declarations: [HomeComponent],
   imports: [
     CommonModule,
     HomeRoutingModule
+    
+    
   ]
 })
 export class HomeModule { }

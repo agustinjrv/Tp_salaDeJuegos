@@ -9,7 +9,7 @@
         <div class="form-row ">
             <div class="col input-group mb-2">
                 <label for="textUsuario" class="mt-1 fas fa-user input-group-text"></label>
-                <input type="text" id="textUsuario"  [(ngModel)]="nuevoUsuario.nombreUsuario"  class="form-control form-text"  placeholder="Ingrese su nombre de usuario">
+                <input type="text" id="textUsuario"  [(ngModel)]="nuevoUsuario.nombreUsuario"   [ngModelOptions]="{standalone: true}" class="form-control form-text"  placeholder="Ingrese su nombre de usuario">
             </div>
         </div>
         
@@ -17,7 +17,7 @@
         <div class="form-row ">
             <div class="col input-group mb-2">
                 <label for="textEdad"  class="mt-1 pt-2 fas  fa-lg fa-walking input-group-text"></label>
-                <input type="number" id="textEdad" [(ngModel)]="nuevoUsuario.edad" class="form-control form-text"  placeholder="Ingrese su edad">
+                <input type="number" id="textEdad" [(ngModel)]="nuevoUsuario.edad"  [ngModelOptions]="{standalone: true}" class="form-control form-text"  placeholder="Ingrese su edad">
             </div>
         </div>
         
@@ -25,7 +25,7 @@
         <div class="form-row ">
             <div class="col input-group mb-2">
                 <label for="textCorreo" class="mt-1 fas fa-envelope input-group-text"></label>
-                <input type="text" id="textCorreo" [(ngModel)]="nuevoUsuario.correo" class="form-control form-text"  placeholder="Ingrese su correo">
+                <input type="text" id="textCorreo" [(ngModel)]="nuevoUsuario.correo"  [ngModelOptions]="{standalone: true}" class="form-control form-text"  placeholder="Ingrese su correo">
             </div>
         </div>
         
@@ -34,7 +34,7 @@
         <div class="form-row ">
             <div class="col input-group mb-2">
                 <label for="textContraseña" class="mt-1 fas fa-key input-group-text"></label>
-                <input type="password" id="textContraseña" [(ngModel)]="nuevoUsuario.contrasenia" class="form-control form-text"  placeholder="Ingrese su contraseña">
+                <input type="password" id="textContraseña" [(ngModel)]="nuevoUsuario.contrasenia"  [ngModelOptions]="{standalone: true}"class="form-control form-text"  placeholder="Ingrese su contraseña">
             </div>
         </div>
         <br>
@@ -46,7 +46,8 @@
     
     <br>
 
-    <p>Ya tiene una cuenta?</p> <p>Ir a <a href="login">login</a></p>
+     <p>Ya tiene una cuenta?</p>
+    <p>Puede ingresar tocando <a routerLink="/login">aqui</a></p>
     
 
 </section>

@@ -8,7 +8,7 @@ import { Mensaje } from '../clases/mensaje';
 export class MensajeRealService {
 
  
-  public rutaDeLaColeccion ="/mensajeFire";
+  public rutaDeLaColeccion ="/salaMensajes";
   public referenciaAlaColeccion : AngularFireList<Mensaje>;
 
    constructor(private db:AngularFireDatabase)
@@ -16,9 +16,25 @@ export class MensajeRealService {
       this.referenciaAlaColeccion = db.list(this.rutaDeLaColeccion);
    }
 
-   CrearUno(mensaje:Mensaje):any
+   public AgregarUno(mensaje:Mensaje):any
    {
       return this.referenciaAlaColeccion.push(mensaje);
    }
 
+   public ObtenerTodos():AngularFireList<Mensaje>
+   {
+      return this.referenciaAlaColeccion;
+   }
+   
+/*
+   public BorrarMensaje(id:any)
+   {
+      return this.referenciaAlaColeccion;
+   }
+ 
+   public ModificarMensaje(id:any,datos:any)
+   {
+      return this.referenciaAlaColeccion;
+   }
+*/
 }
