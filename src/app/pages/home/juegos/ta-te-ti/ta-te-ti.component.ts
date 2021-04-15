@@ -70,7 +70,7 @@ export class TaTeTiComponent implements OnInit {
           
 
         }
-        else if(this.contador==9)
+        else if(this.contador>=8)
         {
           flag=true;
           alert("Empate");
@@ -126,6 +126,19 @@ export class TaTeTiComponent implements OnInit {
     
     
     
+  }
+
+
+  public Reiniciar()
+  {
+    for(let i=0;i<this.tablero.length;i++)
+    {
+      this.tablero[i]=0;
+      $("#celda"+ETateTi[i]).attr("src","");
+    }
+  
+    this.contador=0;
+      this.estadoPartida=true;
   }
 
 
