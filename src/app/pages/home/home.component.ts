@@ -7,9 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public ruta:string;
+  public mostrarChat:boolean;
+
+  constructor() { 
+    this.ruta="/home/chat";
+    this.mostrarChat=false;
+  }
 
   ngOnInit(): void {
+  }
+
+  public AbrirChat()
+  {
+    if(this.mostrarChat)
+    {
+      this.mostrarChat=false;
+    }
+    else
+    {
+      this.mostrarChat=true;
+    }
+     
+     
   }
 
 }

@@ -1,3 +1,4 @@
+import { TaTeTiComponent } from './pages/home/juegos/ta-te-ti/ta-te-ti.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -31,6 +32,7 @@ import { JuegosComponent } from './pages/home/juegos/juegos.component';
     ChatComponent,    
     QuienSoyComponent,
     UsuarioComponent,
+    TaTeTiComponent
 
     
     ],

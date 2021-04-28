@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Mensaje } from 'src/app/clases/mensaje';
 import { MensajeRealService } from 'src/app/services/mensaje-real.service';
@@ -11,41 +11,36 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class ChatComponent implements OnInit {
 
+  @Input() rutaChat:string="adad"
   public unMensaje:Mensaje;
   public date:Date;
-  public variable:boolean;
   public item$:Observable<any[]>;
   public usuarioLogin;
-  
   
   constructor(private MensajeService:MensajeRealService,private miServicioUsuario:UsuariosService) 
   { 
     this.unMensaje=new Mensaje();
     this.date = new Date();
-    this.variable=true;
-    this.item$ = MensajeService.ObtenerTodos().valueChanges();
+    this.item$=new Observable<any[]>();
     this.usuarioLogin=localStorage.getItem("usuarioLogin");
-    console.log(this.usuarioLogin);
   }
-
+  
+  ngOnInit(): void {
+    this.MensajeService.CambiarRuta(this.rutaChat);
+    this.item$ = this.MensajeService.ObtenerTodos().valueChanges();
+  }
+  
   public Enviar()
   {
-    //this.mensaje.usuario=this.miServicioUsuario.usuarioVigente;
     this.unMensaje.mensaje= $("#textMensaje").val()?.toString()??"";
     this.unMensaje.correo = localStorage.getItem("usuarioLogin")?.toString()??"";
-    this.unMensaje.horaYMin =  this.date.getHours() + ':' + this.date.getMinutes();
-
+    this.unMensaje.horaYMin =  this.date.getHours() + ':' + this.date.getMinutes();    
     this.MensajeService.AgregarUno(this.unMensaje).then(()=>{
-
-      console.log("Se Envio el real");
-
-
      
     });
   }
 
 
-  ngOnInit(): void {
-  }
+  
 
 }

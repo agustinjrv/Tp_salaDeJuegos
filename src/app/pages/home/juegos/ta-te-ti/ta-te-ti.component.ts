@@ -11,6 +11,7 @@ const PATHCIRCULO="../../../../../assets/imagenes/Ta-te-ti/ImagenO.svg";
 })
 export class TaTeTiComponent implements OnInit {
 
+  public ruta:string;
   public jugador1:JugadorTaTeTI;
   public jugador2:JugadorTaTeTI;
   public tablero=[0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -19,11 +20,14 @@ export class TaTeTiComponent implements OnInit {
 
   constructor() 
   { 
+     this.ruta="";
+     console.log(this.ruta);
      this.jugador1=new JugadorTaTeTI();
      this.jugador2=new JugadorTaTeTI();
     
   }
   ngOnInit(): void {
+    this.ruta="holaMUNDO/ta-te-ti";
   }
 
   public ElegirCasilla(seleccion:string)

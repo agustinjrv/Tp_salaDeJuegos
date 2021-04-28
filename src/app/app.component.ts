@@ -23,7 +23,6 @@ export class AppComponent implements OnInit{
   { 
     
     this.usuarioLogin = localStorage.getItem("usuarioLogin");
-    console.log(this.usuarioLogin);
 
     if(!this.usuarioLogin)
     {

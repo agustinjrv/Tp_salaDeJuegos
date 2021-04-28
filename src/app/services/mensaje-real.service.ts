@@ -11,10 +11,16 @@ export class MensajeRealService {
   public rutaDeLaColeccion ="/salaMensajes";
   public referenciaAlaColeccion : AngularFireList<Mensaje>;
 
-   constructor(private db:AngularFireDatabase)
+   constructor(private bd:AngularFireDatabase)
    { 
-      this.referenciaAlaColeccion = db.list(this.rutaDeLaColeccion);
+      this.referenciaAlaColeccion = this.bd.list(this.rutaDeLaColeccion);
    }
+   
+   public CambiarRuta(ruta:string)
+   {
+      this.referenciaAlaColeccion = this.bd.list(ruta);
+   }
+
 
    public AgregarUno(mensaje:Mensaje):any
    {

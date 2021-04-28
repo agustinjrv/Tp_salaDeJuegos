@@ -7,7 +7,6 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { HomeComponent } from './pages/home/home.component';
 import { PiedraPapelTijeraComponent } from './pages/home/juegos/piedra-papel-tijera/piedra-papel-tijera.component';
 import { MemotestComponent } from './pages/home/juegos/memotest/memotest.component';
-import { ChatComponent } from './pages/home/chat/chat.component';
 import { JuegosComponent } from './pages/home/juegos/juegos.component';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { UsuarioComponent } from './pages/home/usuario/usuario.component';
@@ -27,7 +26,6 @@ const routes: Routes = [
       {path: "piedra-papel-tijera",component:PiedraPapelTijeraComponent },
       {path: "ta-te-ti",component:TaTeTiComponent},
       {path: "memotest",component:MemotestComponent},
-      {path: "chat",component:ChatComponent},
     ]
   },
   {path:"quienSoy",component:QuienSoyComponent},
