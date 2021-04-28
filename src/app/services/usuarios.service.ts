@@ -13,9 +13,9 @@ export class UsuariosService {
   public referenciaAlaColeccion: AngularFirestoreCollection<Usuario>;
 
 
-  public constructor(db:AngularFirestore) 
+  public constructor(private bd:AngularFirestore) 
   {
-    this.referenciaAlaColeccion = db.collection(this.pathColeccion);
+    this.referenciaAlaColeccion = bd.collection(this.pathColeccion);
   }
 
   public AgregarUno(nuevoUsuario:Usuario)
@@ -37,6 +37,14 @@ export class UsuariosService {
   {
       return this.referenciaAlaColeccion.doc(id).update(usuario);
   }
+
+  public BuscarUno(user: Usuario) {
+    const found = this.bd.collection(this.pathColeccion, ref =>
+      ref.where("correo", "==", user.correo).where("contrasenia", "==", user.contrasenia));
+    return found;
+  }
+
+  
 
 
 }

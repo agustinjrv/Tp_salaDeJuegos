@@ -28,7 +28,6 @@ const routes: Routes = [
       {path: "ta-te-ti",component:TaTeTiComponent},
       {path: "memotest",component:MemotestComponent},
       {path: "chat",component:ChatComponent},
-      
     ]
   },
   {path:"quienSoy",component:QuienSoyComponent},
