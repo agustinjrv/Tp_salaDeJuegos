@@ -4,10 +4,11 @@
       <nav class="navbar navbar-expand navbar-dark bg-dark ">
         <div class="navbar-collapse">
 
-            <button routerLink="home" class="btn btn-outline-danger">Sala de Juegos</button><!--evento colocar mouse encima-->
+            <button routerLink="home/juegos" class="btn btn-outline-danger">Sala de Juegos</button><!--evento colocar mouse encima-->
             
               <ul class="navbar-nav mr-auto " >
                   <li class="nav-item"><a class="text-primary ml-3">Home</a> </li>
+                  <li class="nav-item"><a class="text-primary ml-3">Quien soy?</a> </li>
               </ul>       
 
               <div *ngIf="usuarioLogin == false || usuarioLogin ==null; else salir">

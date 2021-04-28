@@ -9,8 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
+import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
+import { UsuarioComponent } from './pages/home/usuario/usuario.component';
+import { ChatComponent } from './pages/home/chat/chat.component';
+import { JuegosComponent } from './pages/home/juegos/juegos.component';
 
 
 
@@ -20,14 +25,21 @@ import { RegistroComponent } from './pages/registro/registro.component';
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent,
+    JuegosComponent,    
+    ChatComponent,    
+    QuienSoyComponent,
+    UsuarioComponent,
+
+    
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
     
   ],
   providers: [],
