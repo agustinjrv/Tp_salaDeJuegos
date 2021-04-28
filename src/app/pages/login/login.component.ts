@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     this.unUsuario.correo=$("#textCorreo").val()?.toString()??"";// solo para inicio rapido
         this.unUsuario.contrasenia=$("#textContraseña").val()?.toString()??""; //solop para inicio rapido
 
-    this.servicioUsuario.BuscarUno(this.unUsuario).valueChanges().subscribe(result => {
+    this.servicioUsuario.BuscarUnoLogin(this.unUsuario).valueChanges().subscribe(result => {
       if (result.length == 1) {
         localStorage.setItem('usuarioLogin', this.unUsuario.correo);
         location.href="/home/juegos";

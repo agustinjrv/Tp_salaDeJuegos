@@ -12,16 +12,18 @@ const PATHIMAGENES:string ="../../../assets/imagenes/piedra-papel-tijera";
 })
 
 export class PiedraPapelTijeraComponent implements OnInit {
-    
+  public ruta:string;
   public jugador1:JugadorPiedraPapelTijera;
   public jugador2:JugadorPiedraPapelTijera;
   
   public constructor()
   {
+      this.ruta="";
       this.jugador1 = new JugadorPiedraPapelTijera();
       this.jugador2 = new JugadorPiedraPapelTijera();
   }
   ngOnInit(): void {
+    this.ruta="holaMUNDO/piedra-papel-tijera";
   }
 
   public Piedra()

@@ -21,7 +21,6 @@ export class TaTeTiComponent implements OnInit {
   constructor() 
   { 
      this.ruta="";
-     console.log(this.ruta);
      this.jugador1=new JugadorTaTeTI();
      this.jugador2=new JugadorTaTeTI();
     

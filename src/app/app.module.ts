@@ -17,6 +17,7 @@ import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { UsuarioComponent } from './pages/home/usuario/usuario.component';
 import { ChatComponent } from './pages/home/chat/chat.component';
 import { JuegosComponent } from './pages/home/juegos/juegos.component';
+import { PiedraPapelTijeraComponent } from './pages/home/juegos/piedra-papel-tijera/piedra-papel-tijera.component';
 
 
 
@@ -32,7 +33,8 @@ import { JuegosComponent } from './pages/home/juegos/juegos.component';
     ChatComponent,    
     QuienSoyComponent,
     UsuarioComponent,
-    TaTeTiComponent
+    TaTeTiComponent,
+    PiedraPapelTijeraComponent
 
     
     ],

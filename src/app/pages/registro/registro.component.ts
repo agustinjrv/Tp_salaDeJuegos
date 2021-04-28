@@ -16,7 +16,7 @@ export class RegistroComponent implements OnInit {
   { 
       this.nuevoUsuario = new Usuario();
   }
-
+/*
   public AgregarUno()
   {
       this.servicioUsuario.AgregarUno(this.nuevoUsuario);
@@ -25,7 +25,41 @@ export class RegistroComponent implements OnInit {
       location.href ="home/juegos";
       //this.router.navigateByUrl("juegos");
       
-  }  
+  }  */
+
+  public Registro() {
+
+    if (this.nuevoUsuario.contrasenia != '' && this.nuevoUsuario.correo != '') //revisar
+    {
+      this.servicioUsuario.BuscarUsuarioCorreo(this.nuevoUsuario).valueChanges().subscribe(result => 
+      {
+          if (result.length == 0)
+          {
+              this.servicioUsuario.BuscarPorNombreUsuario(this.nuevoUsuario).valueChanges().subscribe(result2=>{
+
+                if(result2.length==0)
+                {
+                    this.servicioUsuario.AgregarUno(this.nuevoUsuario).then(() => {
+                      localStorage.setItem('usuarioLogin', this.nuevoUsuario.correo);
+                      location.href ="home/juegos";
+                    });
+                }
+                else
+                { 
+                  alert("ya exite");
+                }
+              });            
+          }
+          else
+          { 
+            alert("ya exite");
+          }
+      });
+    }
+    else{
+      alert("faltan correo o contraseña");
+    }
+}
 
   ngOnInit(): void {
   }

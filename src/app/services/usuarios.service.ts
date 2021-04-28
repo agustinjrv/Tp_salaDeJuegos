@@ -28,6 +28,14 @@ export class UsuariosService {
      return this.referenciaAlaColeccion;
   }
 
+  public BuscarUsuarioCorreo(user: Usuario) {
+    return this.bd.collection(this.pathColeccion, ref => ref.where("correo", "==", user.correo));    
+  }
+
+  public BuscarPorNombreUsuario(user: Usuario) {
+    return this.bd.collection(this.pathColeccion, ref => ref.where("nombreUsuario", "==", user.nombreUsuario));    
+  }
+
   public BorrarUno(id:string)
   {
     return this.referenciaAlaColeccion.doc(id).delete();
@@ -38,7 +46,7 @@ export class UsuariosService {
       return this.referenciaAlaColeccion.doc(id).update(usuario);
   }
 
-  public BuscarUno(user: Usuario) {
+  public BuscarUnoLogin(user: Usuario) {
     const found = this.bd.collection(this.pathColeccion, ref =>
       ref.where("correo", "==", user.correo).where("contrasenia", "==", user.contrasenia));
     return found;
