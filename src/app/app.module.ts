@@ -18,6 +18,7 @@ import { UsuarioComponent } from './pages/home/usuario/usuario.component';
 import { ChatComponent } from './pages/home/chat/chat.component';
 import { JuegosComponent } from './pages/home/juegos/juegos.component';
 import { PiedraPapelTijeraComponent } from './pages/home/juegos/piedra-papel-tijera/piedra-papel-tijera.component';
+import { MemotestComponent } from './pages/home/juegos/memotest/memotest.component';
 
 
 
@@ -34,9 +35,9 @@ import { PiedraPapelTijeraComponent } from './pages/home/juegos/piedra-papel-tij
     QuienSoyComponent,
     UsuarioComponent,
     TaTeTiComponent,
-    PiedraPapelTijeraComponent
-
-    
+    PiedraPapelTijeraComponent,
+    MemotestComponent
+   
     ],
   imports: [
     BrowserModule,

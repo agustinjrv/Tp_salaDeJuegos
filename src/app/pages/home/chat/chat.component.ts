@@ -10,12 +10,13 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-
   @Input() rutaChat:string="adad"
   public unMensaje:Mensaje;
   public date:Date;
   public item$:Observable<any[]>;
   public usuarioLogin;
+
+  
   
   constructor(private MensajeService:MensajeRealService,private miServicioUsuario:UsuariosService) 
   { 
@@ -29,14 +30,18 @@ export class ChatComponent implements OnInit {
     this.MensajeService.CambiarRuta(this.rutaChat);
     this.item$ = this.MensajeService.ObtenerTodos().valueChanges();
   }
+
+  
   
   public Enviar()
   {
     this.unMensaje.mensaje= $("#textMensaje").val()?.toString()??"";
     this.unMensaje.correo = localStorage.getItem("usuarioLogin")?.toString()??"";
     this.unMensaje.horaYMin =  this.date.getHours() + ':' + this.date.getMinutes();    
+    $("#textMensaje").val("");
     this.MensajeService.AgregarUno(this.unMensaje).then(()=>{
-     
+      
+      $("#chatMensajes").scrollTop(99999);
     });
   }
 
