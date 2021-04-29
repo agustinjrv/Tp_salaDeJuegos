@@ -11,6 +11,7 @@ import { JuegosComponent } from './pages/home/juegos/juegos.component';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { UsuarioComponent } from './pages/home/usuario/usuario.component';
 import { MemotestComponent } from './pages/home/juegos/memotest/memotest.component';
+import { AutentificacionGuard } from './services/autentificacion/autentificacion.guard';
 
 
 const routes: Routes = [
@@ -22,8 +23,8 @@ const routes: Routes = [
     children:
     [
       {path: "", component:HomeComponent},
-      {path: "usuario",component:UsuarioComponent},
-      {path: "juegos", component:JuegosComponent},
+      {path: "usuario",component:UsuarioComponent,canActivate:[AutentificacionGuard]},
+      {path: "juegos", component:JuegosComponent,},
       {path: "piedra-papel-tijera",component:PiedraPapelTijeraComponent },
       {path: "memoTest",component:MemotestComponent},      
       {path: "ta-te-ti",component:TaTeTiComponent},

@@ -40,6 +40,7 @@ export class TaTeTiComponent implements OnInit {
         {
           this.tablero[this.jugador1.seleccion]=1;
           $("#celda"+ETateTi[this.jugador1.seleccion]).attr("src",PATHX);
+          $("#celda"+ETateTi[this.jugador1.seleccion]).css("visibility","visible");
 
           if(this.Ganaste(1))
           {
@@ -65,6 +66,7 @@ export class TaTeTiComponent implements OnInit {
           this.tablero[this.jugador2.seleccion]=-1;          
           
           $("#celda"+ETateTi[this.jugador2.seleccion]).attr("src",PATHCIRCULO);
+          $("#celda"+ETateTi[this.jugador2.seleccion]).css("visibility","visible");
           flag=true;
 
           if(this.Ganaste(-1))
@@ -137,8 +139,8 @@ export class TaTeTiComponent implements OnInit {
     for(let i=0;i<this.tablero.length;i++)
     {
       this.tablero[i]=0;
-      //$("#celda"+ETateTi[i]).css("visibility","hidden");
-      $("#celda"+ETateTi[i]).attr("src","");
+      $("#celda"+ETateTi[i]).css("visibility","hidden");
+      //$("#celda"+ETateTi[i]).attr("src","");
     }
   
     this.contador=0;

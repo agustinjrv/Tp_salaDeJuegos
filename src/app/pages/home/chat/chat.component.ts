@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Mensaje } from 'src/app/clases/mensaje';
-import { MensajeRealService } from 'src/app/services/mensaje-real.service';
+import { MensajeRealService } from 'src/app/services/mensaje-real/mensaje-real.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
