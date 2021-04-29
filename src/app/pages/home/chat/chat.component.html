@@ -7,7 +7,7 @@
 	<div class="modal-dialog " role="document">
 		<div class="modal-content bg-secondary">
 			<div class="modal-header">
-				<h1 class="modal-title" id="exampleModalLabel">CHAT</h1>
+				<h1 class="modal-title text-white" id="exampleModalLabel">CHAT</h1>
 				<button type="button" class="btn btn-outline-danger" data-dismiss="modal">X</button>
 			</div>
 
@@ -49,25 +49,28 @@
 							</div>
 
 						</div>
+							<form action="">
+								<section class="card-footer">
+									<div class="input-group">
 
-						<section class="card-footer">
-							<div class="input-group">
+										<!--boton para archivos-->
+										<!--div class="input-group-append">
+											<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+										</div-->
+										
 
-								<div class="input-group-append">
-									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
-								</div>
+										<input type="text" class="form-control type_msg" id="textMensaje"
+											placeholder="Escribe tu mensaje">
 
-								<input type="text" class="form-control type_msg" id="textMensaje"
-									placeholder="Escribe tu mensaje">
+										<div class="input-group-append">
+											<button (click)="Enviar()" class="input-group-text send_btn"><i
+													class="fas fa-location-arrow"></i>
+											</button>
+										</div>
 
-								<div class="input-group-append">
-									<button (click)="Enviar()" class="input-group-text send_btn"><i
-											class="fas fa-location-arrow"></i>
-									</button>
-								</div>
-
-							</div>
-						</section>
+									</div>
+								</section>
+							</form>
 
 					</div>
 				</div>

@@ -137,6 +137,7 @@ export class TaTeTiComponent implements OnInit {
     for(let i=0;i<this.tablero.length;i++)
     {
       this.tablero[i]=0;
+      //$("#celda"+ETateTi[i]).css("visibility","hidden");
       $("#celda"+ETateTi[i]).attr("src","");
     }
   

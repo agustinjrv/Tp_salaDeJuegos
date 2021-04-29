@@ -6,10 +6,11 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PiedraPapelTijeraComponent } from './pages/home/juegos/piedra-papel-tijera/piedra-papel-tijera.component';
-import { MemotestComponent } from './pages/home/juegos/memotest/memotest.component';
+
 import { JuegosComponent } from './pages/home/juegos/juegos.component';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { UsuarioComponent } from './pages/home/usuario/usuario.component';
+import { MemotestComponent } from './pages/home/juegos/memotest/memotest.component';
 
 
 const routes: Routes = [
@@ -21,11 +22,11 @@ const routes: Routes = [
     children:
     [
       {path: "", component:HomeComponent},
-      {path:"usuario",component:UsuarioComponent},
+      {path: "usuario",component:UsuarioComponent},
       {path: "juegos", component:JuegosComponent},
       {path: "piedra-papel-tijera",component:PiedraPapelTijeraComponent },
+      {path: "memoTest",component:MemotestComponent},      
       {path: "ta-te-ti",component:TaTeTiComponent},
-      {path: "memotest",component:MemotestComponent},
     ]
   },
   {path:"quienSoy",component:QuienSoyComponent},

@@ -22,7 +22,6 @@ import { MemotestComponent } from './pages/home/juegos/memotest/memotest.compone
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +36,7 @@ import { MemotestComponent } from './pages/home/juegos/memotest/memotest.compone
     TaTeTiComponent,
     PiedraPapelTijeraComponent,
     MemotestComponent
+    
    
     ],
   imports: [
