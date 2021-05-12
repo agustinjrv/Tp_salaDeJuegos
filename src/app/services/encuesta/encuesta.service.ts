@@ -1,9 +1,23 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Preguntas } from 'src/app/clases/preguntas/preguntas';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class EncuestaService {
+  rutaDeLaColeccion = "/encuesta";
+  referenciaAlaColeccion: AngularFirestoreCollection<Preguntas>;  
 
-  constructor() { }
+
+  constructor(private bd: AngularFirestore) {
+    this.referenciaAlaColeccion = bd.collection(this.rutaDeLaColeccion);
+  }
+
+  public AgregarRespuesta(respuesta: Preguntas): any {
+    return this.referenciaAlaColeccion.add({ ...respuesta });
+  }
+
 }

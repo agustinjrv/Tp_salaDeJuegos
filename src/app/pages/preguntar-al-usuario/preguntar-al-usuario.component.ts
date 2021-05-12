@@ -1,3 +1,4 @@
+import { EncuestaService } from './../../services/encuesta/encuesta.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Preguntas } from 'src/app/clases/preguntas/preguntas';
@@ -33,8 +34,8 @@ export class PreguntarAlUsuarioComponent implements OnInit {
 
 
 
-  constructor() { 
-
+  constructor(private servicioEncuesta:EncuestaService) { 
+    
   }
 
   ngOnInit(): void {
@@ -47,15 +48,12 @@ export class PreguntarAlUsuarioComponent implements OnInit {
     this.preguntas.apellido = this.encuestaForm.get('apellido')?.value;
     this.preguntas.edad = this.encuestaForm.get('edad')?.value;
     this.preguntas.telefono =this.encuestaForm.get('telefono')?.value;
-    
-    
-    this.prueba();
+    this.servicioEncuesta.AgregarRespuesta(this.preguntas);
+
+      alert('Gracias por responder!!');
   }
 
-  prueba()
-  {
-      console.log(this.preguntas);
-  }
+  
 
   
 
