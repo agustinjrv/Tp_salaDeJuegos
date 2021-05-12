@@ -12,6 +12,7 @@ import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 import { UsuarioComponent } from './pages/home/usuario/usuario.component';
 import { MemotestComponent } from './pages/home/juegos/memotest/memotest.component';
 import { AutentificacionGuard } from './services/autentificacion/autentificacion.guard';
+import { PreguntarAlUsuarioComponent } from './pages/preguntar-al-usuario/preguntar-al-usuario.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
     ]
   },
   {path:"quienSoy",component:QuienSoyComponent},
+  {path:"encuesta",component:PreguntarAlUsuarioComponent},
   {path:"registro",component:RegistroComponent},
   {path:"login",component:LoginComponent},
   {path:"**",component:PageNotFoundComponent}

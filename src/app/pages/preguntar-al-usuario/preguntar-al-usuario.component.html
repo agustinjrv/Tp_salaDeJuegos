@@ -1,0 +1,112 @@
+<section class="container mt-3 w-50 ">
+
+    <form class="form-control h-100 bg-primary text-white" [formGroup]="encuestaForm" >
+            <div class="row">
+                <div class="col-5">
+                    <label for="">Nombre:</label>
+
+                    <span *ngIf="encuestaForm.get('nombre')?.errors && 
+                        (encuestaForm.get('nombre')?.dirty || encuestaForm.get('nombre')?.touched)">
+                        <small class="text-danger" *ngIf="encuestaForm.get('nombre')?.hasError('required')">
+                            ❌
+                        </small>
+                    </span>
+
+                    <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" >
+                </div>
+
+               
+
+                <div class="col-5">
+                    <label for="">Apellido:</label>
+                    <input type="text" class="form-control" [(ngModel)]="preguntas.apellido" [ngModelOptions]="{standalone: true}" placeholder="Apellido">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Edad</label>
+                    <input type="text" class="form-control" min="18" max="99" maxlength="2" required [(ngModel)]="preguntas.edad" [ngModelOptions]="{standalone: true}" >
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Numero de telefono</label>
+                    <input type="number" class="form-control" maxlength="10" required [(ngModel)]="preguntas.telefono" [ngModelOptions]="{standalone: true}" >
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col ">
+                    <label for="">Te Gusto la pagina?</label>
+                    
+                    <div align="center">
+                       <h1>{{preguntas.gustoDePagina}}</h1> 
+                        <input type="range" min="1" max="10"  style="background-color: -internal-light-dark(rgb(196, 11, 11), rgb(235, 8, 8));" class="col-md-8 mb-4  "  id="playHours" [(ngModel)]="preguntas.gustoDePagina" [ngModelOptions]="{standalone: true}" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <hr style="background-color: white;">
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label >Que juegos jugaste?</label>
+                    <br>
+                    <div class='form-check-inline'>
+                        <input type="checkbox" id="checkPiedraPapelTijera" class="form-check" value="piedraPapelTiejera" [(ngModel)]="preguntas.jugastePiedraPapelTijera"  [ngModelOptions]="{standalone: true}"><label class="form-check-label" for="checkPiedraPapelTijera"> Piedra papel o tijera</label>
+                    </div>
+                    <br>
+                    <div class='form-check-inline'>
+                        <input type="checkbox" id="checkTaTeTi" class="form-check" value="TaTeTi" [(ngModel)]="preguntas.jugasteTaTeTi"  [ngModelOptions]="{standalone: true}"><label class="form-check-label" for="checkTaTeTi" >Ta-te-ti</label>
+                    </div>
+                    <br>
+                    <div class='form-check-inline'>
+                        <input type="checkbox" id="checkMemotest"  class="form-check" value="Memotest" [(ngModel)]="preguntas.jugasteMemoTest"  [ngModelOptions]="{standalone: true}"><label class="form-check-label" for="checkMemotest"> Memotest</label>
+                        
+                    </div>
+                    <br>
+                    <div class='form-check-inline'>
+                        <input type="checkbox" id="checkRecuerdaLaSecuencia" class="form-check" value="RecuerdaLaSecuencia" [(ngModel)]="preguntas.jugasteRecuerdaLaSecuencia"  [ngModelOptions]="{standalone: true}"><label  class="form-check-label" for="checkRecuerdaLaSecuencia"> Recuerda la secuencia</label>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div>
+                <hr style="background-color: white;">
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Cual te gusto mas?</label>
+                    <br>
+
+                    <input type="radio" name="juego" id="radioPiedraPapelTijera"><label for="radioPiedraPapelTijera">Piedra papel o tijera</label>
+                    <br>
+                    
+                    <input type="radio" name="juego" id="radioTaTeTi"><label for="radioTaTeTi">Ta-te-ti</label>
+                    <br>
+                    <input type="radio" name="juego" id="radioMemoTest"><label for="radioMemoTest">Memotest</label>
+                    <br>
+                    <input type="radio" name="juego" id="radioRecuerdalaSecuencia"><label for="radioRecuerdalaSecuencia">Recuerda la secuencia</label>
+
+                </div>
+            </div>
+
+        
+        <section class="modal-footer "  >
+            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="this.AgregarRespuesta()">Enviar</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" >Cerrar</button>
+        </section>
+
+    </form>
+
+
+</section>
+

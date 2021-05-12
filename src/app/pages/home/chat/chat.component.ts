@@ -29,6 +29,7 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.MensajeService.CambiarRuta(this.rutaChat);
     this.item$ = this.MensajeService.ObtenerTodos().valueChanges();
+   
   }
 
   
@@ -44,8 +45,4 @@ export class ChatComponent implements OnInit {
       $("#chatMensajes").scrollTop(99999);
     });
   }
-
-
-  
-
 }

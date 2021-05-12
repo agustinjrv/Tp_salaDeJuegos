@@ -1,6 +1,6 @@
 import { TaTeTiComponent } from './pages/home/juegos/ta-te-ti/ta-te-ti.component';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,11 @@ import { ChatComponent } from './pages/home/chat/chat.component';
 import { JuegosComponent } from './pages/home/juegos/juegos.component';
 import { PiedraPapelTijeraComponent } from './pages/home/juegos/piedra-papel-tijera/piedra-papel-tijera.component';
 import { MemotestComponent } from './pages/home/juegos/memotest/memotest.component';
+import { HttpClientModule } from '@angular/common/http';
+import * as bootstrap from "bootstrap";
+import * as $ from "jquery";
+import { PreguntarAlUsuarioComponent } from './pages/preguntar-al-usuario/preguntar-al-usuario.component';
+import { ScoreComponent } from './componentes/score/score.component';
 
 
 
@@ -35,9 +40,9 @@ import { MemotestComponent } from './pages/home/juegos/memotest/memotest.compone
     UsuarioComponent,
     TaTeTiComponent,
     PiedraPapelTijeraComponent,
-    MemotestComponent
-    
-   
+    MemotestComponent,
+    PreguntarAlUsuarioComponent,
+    ScoreComponent,
     ],
   imports: [
     BrowserModule,
@@ -45,9 +50,13 @@ import { MemotestComponent } from './pages/home/juegos/memotest/memotest.compone
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
+    HttpClientModule, 
+    ReactiveFormsModule
+      
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

@@ -1,1 +1,84 @@
-<h1>estoy en memoTest</h1>
+
+
+    <app-chat [rutaChat]="ruta"></app-chat>
+
+<div class="container">
+    <p *ngIf="this.inicio" style="color: white;" class="mensaje-p">
+        Tiempo: {{this.tiempo}}
+    </p>
+
+    <div class="container">
+        <div class="text-center" *ngIf="dificultad == null" >
+            <h1>Precione para empezar</h1>
+            <a class="btn" style="height: 600px; width: 500px;" (click)="empezarJuego()">
+                <img src="assets/play.svg" class="imagen">
+            </a>
+            <br>
+        </div>
+    </div>
+    
+
+    <div style="margin-top: 10%;">
+        <div id="juego" class="mt-4" *ngIf="dificultad != null">
+
+            <div *ngFor="let carta of cartas; index as i" [class]="carta.clase" (click)="voltear(i)">
+    
+                <img [src]="carta.mostrar ? carta.path : carta.atras" class="mt-2"
+                    style="width: 200px; height: 200px;" alt="carta">
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div style="visibility: hidden">
+</div>
+<button id="botonGano" class="btn btn-primary" data-toggle="modal" data-target="#modalGano">Mostrar Modal</button>
+
+<section *ngIf="gano"  >
+    <app-score [nuevoScore]="this.nuevoScore"></app-score>
+</section>
+
+<app-preguntar-al-usuario (cerrado)="this.AbrirModalGano($event)"></app-preguntar-al-usuario>
+
+
+<section class="modal fade " id="modalGano" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+	aria-hidden="true" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog " role="document">
+
+		<div class="modal-content bg-primary">
+			<div class="modal-header">
+				<h1 class="modal-title text-white" id="exampleModalLabel">Ganaste!!! tu tiempo fue: {{this.tiempo}}</h1>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+			</div>
+
+			<section class="modal-body">
+
+                <div class="row">
+                    <div class="col" data-dismiss="modal" >
+                        <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalScore" >Ver score</button>
+                        
+                    </div>
+                </div>
+    
+                <div class="row mt-3" >
+                    <div class="col"  data-dismiss="modal">
+                        <button class="btn btn-block btn-warning" data-toggle="modal" data-target="#modalPreguntas">Por favor reponde estas preguntas</button>        
+                    </div>
+                </div>
+    
+                <div class="row mt-3">
+                    <div class="col" data-dismiss="modal">
+                        <button class="btn btn-block btn-danger" (click)="empezarJuego()" >Volver a jugar</button>    
+                    </div>
+                </div>
+
+
+			</section>
+
+		</div>
+	</div>
+</section>
+    
+
+
