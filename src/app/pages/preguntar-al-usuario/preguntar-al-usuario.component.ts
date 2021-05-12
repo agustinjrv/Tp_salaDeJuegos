@@ -29,16 +29,6 @@ export class PreguntarAlUsuarioComponent implements OnInit {
      Validators.pattern("^[0-9]*$"),
      Validators.maxLength(10)
    ]),
-   comoNosEncontraste: new FormControl('', [
-     Validators.required
-   ]),
-   cuantoGusto: new FormControl(''),
-   cualesJugaste: new FormControl('', [
-     Validators.required
-   ]),
-   recomendarias: new FormControl('', [
-     Validators.required
-   ])
  });
 
 
@@ -53,6 +43,18 @@ export class PreguntarAlUsuarioComponent implements OnInit {
   public AgregarRespuesta()
   {
     
+    this.preguntas.nombre = this.encuestaForm.get('nombre')?.value;
+    this.preguntas.apellido = this.encuestaForm.get('apellido')?.value;
+    this.preguntas.edad = this.encuestaForm.get('edad')?.value;
+    this.preguntas.telefono =this.encuestaForm.get('telefono')?.value;
+    
+    
+    this.prueba();
+  }
+
+  prueba()
+  {
+      console.log(this.preguntas);
   }
 
   
