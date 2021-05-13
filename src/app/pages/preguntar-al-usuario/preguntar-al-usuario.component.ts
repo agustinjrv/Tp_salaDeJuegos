@@ -1,8 +1,9 @@
+import { Router } from '@angular/router';
 import { EncuestaService } from './../../services/encuesta/encuesta.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Preguntas } from 'src/app/clases/preguntas/preguntas';
-
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 
 @Component({
   selector: 'app-preguntar-al-usuario',
@@ -34,7 +35,7 @@ export class PreguntarAlUsuarioComponent implements OnInit {
 
 
 
-  constructor(private servicioEncuesta:EncuestaService) { 
+  constructor(private servicioEncuesta:EncuestaService,private router:Router) { 
     
   }
 
@@ -50,7 +51,35 @@ export class PreguntarAlUsuarioComponent implements OnInit {
     this.preguntas.telefono =this.encuestaForm.get('telefono')?.value;
     this.servicioEncuesta.AgregarRespuesta(this.preguntas);
 
-      alert('Gracias por responder!!');
+    this.alert('success','Gracias por responder!!');
+
+    setTimeout(()=>{
+      this.router.navigateByUrl('/home/juegos');
+      
+    },1500)
+
+      
+  }
+
+  alert(icon: SweetAlertIcon, text: string) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+
+    Toast.fire({
+      icon: icon,
+      title: text
+    })
+
   }
 
   
