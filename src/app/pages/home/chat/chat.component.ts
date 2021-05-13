@@ -31,8 +31,6 @@ export class ChatComponent implements OnInit {
     this.item$ = this.MensajeService.ObtenerTodos().valueChanges();
    
   }
-
-  
   
   public Enviar()
   {

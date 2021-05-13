@@ -21,7 +21,7 @@ aria-hidden="true" data-backdrop="static" data-keyboard="false">
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of lista | async">
+                        <tr *ngFor="let item of this.item$| async">
                             <td>{{item.name}}</td>
                             <td>{{item.score}}</td>
                         </tr>
@@ -30,6 +30,7 @@ aria-hidden="true" data-backdrop="static" data-keyboard="false">
 
             </div>
             <div class="modal-footer">
+                
                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
             </div>
         </div>

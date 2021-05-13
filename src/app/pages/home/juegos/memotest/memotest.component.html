@@ -32,11 +32,11 @@
 </div>
 
 <div style="visibility: hidden">
+    <button id="botonGano" class="btn btn-primary" data-toggle="modal" data-target="#modalGano">Mostrar Modal</button>
 </div>
-<button id="botonGano" class="btn btn-primary" data-toggle="modal" data-target="#modalGano">Mostrar Modal</button>
 
-<section *ngIf="gano"  >
-    <app-score [nuevoScore]="this.nuevoScore"></app-score>
+<section>
+    <app-score [rutaScore]='rutaScore'></app-score>
 </section>
 
 
@@ -56,16 +56,10 @@
 
                 <div class="row">
                     <div class="col" data-dismiss="modal" >
-                        <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalScore" >Ver score</button>
-                        
+                        <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalScore" >Ver score</button>                    
                     </div>
                 </div>
     
-                <div class="row mt-3" >
-                    <div class="col"  data-dismiss="modal">
-                        <button class="btn btn-block btn-warning" data-toggle="modal" data-target="#modalPreguntas">Por favor reponde estas preguntas</button>        
-                    </div>
-                </div>
     
                 <div class="row mt-3">
                     <div class="col" data-dismiss="modal">

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Score } from 'src/app/clases/score/score';
 import { ScoreService } from 'src/app/services/score/score.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -10,23 +11,21 @@ import { ScoreService } from 'src/app/services/score/score.service';
 })
 export class ScoreComponent implements OnInit {
 
-  @Input() nuevoScore:Score;
-  public lista:any;
   
-
+  @Input() rutaScore:string='';
+  public item$:Observable<any[]>;
+  
+  
   constructor(private servicioScore:ScoreService) { 
-    this.nuevoScore = new Score();
-    this.lista = this.servicioScore.GetAll().valueChanges();
-    
+  
+    this.item$=new Observable<any[]>();
   }
 
   ngOnInit(): void {
-    this.guardarScore();
+    this.item$ = this.servicioScore.ObtenerTodos().valueChanges();
   }
-
-  public guardarScore(){
-    this.servicioScore.AgregarScore(this.nuevoScore);
-  }
+  
+  
 
 
 }

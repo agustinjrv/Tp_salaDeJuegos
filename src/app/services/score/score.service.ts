@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import {AngularFireDatabase, AngularFireList} from "@angular/fire/database";
 import { Score } from 'src/app/clases/score/score';
 
 
@@ -8,22 +8,29 @@ import { Score } from 'src/app/clases/score/score';
 })
 export class ScoreService {
 
-  rutaDeLaColeccion = "/scores";
-  referenciaAlaColeccion: AngularFirestoreCollection<Score>;
-  referenciaOrdenada: AngularFirestoreCollection<Score>;
+  
+  public rutaDeLaColeccion ="/Score";
+  public referenciaAlaColeccion : AngularFireList<Score>;
+
+   constructor(private bd:AngularFireDatabase)
+   { 
+      this.referenciaAlaColeccion = this.bd.list(this.rutaDeLaColeccion);
+   }
+   
+   public CambiarRuta(ruta:string)
+   {
+      this.referenciaAlaColeccion = this.bd.list(ruta);
+   }
 
 
-  constructor(private bd: AngularFirestore) {
-    this.referenciaAlaColeccion = bd.collection(this.rutaDeLaColeccion);
-    this.referenciaOrdenada = bd.collection<Score>('scores', ref => ref.orderBy('score', 'desc'));
-  }
+   public AgregarUno(nuevoScore:Score):any
+   {
+      return this.referenciaAlaColeccion.push(nuevoScore);
+   }
 
-  AgregarScore(score: Score): any {
-    return this.referenciaAlaColeccion.add({ ...score });
-  }
-
-  GetAll(): AngularFirestoreCollection<Score> {
-    return this.referenciaOrdenada;
-  }
-
+   public ObtenerTodos():AngularFireList<Score>
+   {
+      return this.referenciaAlaColeccion;
+   }
+   
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Score } from 'src/app/clases/score/score';
 import { EpiedraPapelTijera } from 'src/app/enumerados/epiedra-papel-tijera.enum';
 import { JugadorPiedraPapelTijera } from '../clases/jugador-piedra-papel-tijera';
 
@@ -13,6 +14,7 @@ const PATHIMAGENES:string ="../../../assets/imagenes/piedra-papel-tijera";
 
 export class PiedraPapelTijeraComponent implements OnInit {
   public ruta:string;
+  public rutaScore='score/piedraPapelTijera';
   public jugador1:JugadorPiedraPapelTijera;
   public jugador2:JugadorPiedraPapelTijera;
   
@@ -131,9 +133,13 @@ export class PiedraPapelTijeraComponent implements OnInit {
   public GanoJugador1()
   {
     this.jugador1.victorias++;
+    
+    
     $("#resultado").html("Ganaste!!! <br>Jugador1= " + EpiedraPapelTijera[this.jugador1.seleccion] +
     "<br>Jugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]); 
   }
+
+ 
 
   public GanoJugador2()
   {
@@ -146,6 +152,12 @@ export class PiedraPapelTijeraComponent implements OnInit {
   {
     $("#resultado").html("Empate!!!  <br>Jugador1= " + EpiedraPapelTijera[this.jugador1.seleccion] +
                                     "<br>Jugador2= " + EpiedraPapelTijera[this.jugador2.seleccion]);
+  }
+  
+  public GuardarScore(){
+    let nuevoScore:Score=new Score();
+    nuevoScore.name=localStorage.getItem("usuarioLogin")??"Desconocido";
+    nuevoScore.score='jugador 1:' + this.jugador1 + '  jugador 2:'+this.jugador2.victorias;
   }
 
 

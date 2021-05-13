@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { Score } from 'src/app/clases/score/score';
 import { PeliculasService } from 'src/app/services/peliculas/peliculas.service';
+import { ScoreService } from 'src/app/services/score/score.service';
 
 
 
@@ -22,6 +23,7 @@ export class MemotestComponent implements OnInit {
   public imgCarta = "https://image.tmdb.org/t/p/w500";
   public imgBack = "../../../../assets/imagen/back.jpg";
   public ruta="holaMUNDO/MemoTest";
+  public rutaScore='score/memoTest'
   public gano=false;
   public nuevoScore:Score= new Score();
 
@@ -61,7 +63,7 @@ export class MemotestComponent implements OnInit {
 
 
 
-  constructor(private movieApi:PeliculasService) { }
+  constructor(private movieApi:PeliculasService,private servicioScore:ScoreService) { }
 
   ngOnInit(): void {
     this.movieApi.getMoviesImages().subscribe((data:any) => {
@@ -69,6 +71,8 @@ export class MemotestComponent implements OnInit {
       
       //console.log(data["results"]);
     });
+
+    
   }
 
   seleccionaDificultad(dificultad: any = null) {
@@ -140,8 +144,8 @@ export class MemotestComponent implements OnInit {
     
    this.AbrirModalGano(true);
 
-    
-
+   this.servicioScore.AgregarUno(this.nuevoScore);
+   
     this.resetTimer();
     
   }

@@ -13,6 +13,8 @@ import { UsuarioComponent } from './pages/home/usuario/usuario.component';
 import { MemotestComponent } from './pages/home/juegos/memotest/memotest.component';
 import { AutentificacionGuard } from './services/autentificacion/autentificacion.guard';
 import { PreguntarAlUsuarioComponent } from './pages/preguntar-al-usuario/preguntar-al-usuario.component';
+import { RecuerdaLaSecuenciaComponent } from './pages/home/juegos/recuerda-la-secuencia/recuerda-la-secuencia.component';
+
 
 
 const routes: Routes = [
@@ -29,6 +31,8 @@ const routes: Routes = [
       {path: "piedra-papel-tijera",component:PiedraPapelTijeraComponent },
       {path: "memoTest",component:MemotestComponent},      
       {path: "ta-te-ti",component:TaTeTiComponent},
+      {path: "recuerdaLaSecuencia",component:RecuerdaLaSecuenciaComponent},
+      
     ]
   },
   {path:"quienSoy",component:QuienSoyComponent},

@@ -1,3 +1,4 @@
+import { RecuerdaLaSecuenciaComponent } from './pages/home/juegos/recuerda-la-secuencia/recuerda-la-secuencia.component';
 import { TaTeTiComponent } from './pages/home/juegos/ta-te-ti/ta-te-ti.component';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,6 +28,8 @@ import { ScoreComponent } from './componentes/score/score.component';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +45,9 @@ import { ScoreComponent } from './componentes/score/score.component';
     PiedraPapelTijeraComponent,
     MemotestComponent,
     PreguntarAlUsuarioComponent,
-    ScoreComponent,
+    ScoreComponent,  
+    RecuerdaLaSecuenciaComponent, 
+    
     ],
   imports: [
     BrowserModule,
