@@ -1,5 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Score } from 'src/app/clases/score/score';
+import { ScoreService } from 'src/app/services/score/score.service';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
 
 @Component({
@@ -16,14 +18,17 @@ export class RecuerdaLaSecuenciaComponent implements OnInit {
   public bloqueoPanel:boolean;
 
   public seleccionJugador:string="";
+  public rutaScore='score/recuerdaLaSecuencia';
+  public ruta="holaMUNDO/recuerdaLaSecuencia";
 
 
   public claseBtnIniciar='btn btn-success btn-block';
   public btnIniciar='Iniciar';
 
-  constructor() { 
+  constructor(private servicioScore:ScoreService) { 
     this.bloqueoPanel=true;
   }
+  
 
   ngOnInit(): void {
   }
@@ -114,8 +119,16 @@ export class RecuerdaLaSecuenciaComponent implements OnInit {
   public Error()
   {
      this.alert('error',"Te has equivocado,numero de asiertos:" + this.puntos,'top');
-     //,
      this.bloqueoPanel=true;
+     this.GuardarScore();
+  }
+
+  public GuardarScore(){
+    let nuevoScore:Score=new Score();
+    nuevoScore.name=localStorage.getItem("usuarioLogin")??"Desconocido";
+    nuevoScore.score='Cantidad de puntos: ' + this.puntos;
+    this.servicioScore.AgregarUno(nuevoScore);
+    
   }
 
    alert(icon: SweetAlertIcon, text: string,posicion:any) {

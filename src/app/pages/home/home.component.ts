@@ -29,8 +29,7 @@ export class HomeComponent implements OnInit {
     {
       this.mostrarChat=true;
     }
-     
-     
+ 
   }
 
 }

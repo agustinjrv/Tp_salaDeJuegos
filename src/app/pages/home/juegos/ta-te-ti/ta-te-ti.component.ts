@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Score } from 'src/app/clases/score/score';
+import { ScoreService } from 'src/app/services/score/score.service';
 import { ETateTi, JugadorTaTeTI } from '../clases/jugador-ta-te-ti';
 
 const PATHX="../../../../../assets/imagenes/Ta-te-ti/ImagenX.svg";
@@ -17,8 +19,11 @@ export class TaTeTiComponent implements OnInit {
   public tablero=[0, 0, 0, 0, 0, 0, 0, 0, 0];
   public contador=0;
   public estadoPartida=true;
+  public rutaScore='score/TaTeTi';
 
-  constructor() 
+  public nuevoScore = new Score();
+
+  constructor(private servicioScore:ScoreService) 
   { 
      this.ruta="";
      this.jugador1=new JugadorTaTeTI();
@@ -45,6 +50,7 @@ export class TaTeTiComponent implements OnInit {
           if(this.Ganaste(1))
           {
             alert("Ganaste");
+            this.jugador1.victorias++;
           }
           else
           {
@@ -71,9 +77,8 @@ export class TaTeTiComponent implements OnInit {
 
           if(this.Ganaste(-1))
           alert("Perdiste");
+          this.jugador2.victorias++;
           
-          
-
         }
         else if(this.contador>=8)
         {
@@ -146,6 +151,17 @@ export class TaTeTiComponent implements OnInit {
     this.contador=0;
       this.estadoPartida=true;
   }
+
+  public GuardarScore(){
+    let nuevoScore:Score=new Score();
+    nuevoScore.name=localStorage.getItem("usuarioLogin")??"Desconocido";
+    nuevoScore.score='jugador uno= ' + this.jugador1.victorias + '  jugador dos= '+this.jugador2.victorias;
+    this.servicioScore.AgregarUno(nuevoScore);
+    alert('guardado');
+    
+  }
+
+
 
 
 }

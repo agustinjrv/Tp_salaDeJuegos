@@ -3,6 +3,7 @@
 <p>Elije una casilla para empezar</p>
 
 <app-chat [rutaChat]="ruta"></app-chat>
+<app-score [rutaScore]='rutaScore'></app-score>
 
 <section class="container "  >
     <table class="table bg-secondary  h-100" >
@@ -24,6 +25,7 @@
     </table>
 
         <button class="btn btn-outline-danger btn-block" (click)="Reiniciar()">REINICIAR</button>
+        <button class='btn btn-warning btn-block mt-2'  (click)='GuardarScore()'>Guardar Score</button>
 
 </section>
 
