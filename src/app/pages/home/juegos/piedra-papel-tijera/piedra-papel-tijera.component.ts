@@ -1,3 +1,4 @@
+import { ScoreService } from 'src/app/services/score/score.service';
 import { Component, OnInit } from '@angular/core';
 import { Score } from 'src/app/clases/score/score';
 import { EpiedraPapelTijera } from 'src/app/enumerados/epiedra-papel-tijera.enum';
@@ -18,7 +19,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
   public jugador1:JugadorPiedraPapelTijera;
   public jugador2:JugadorPiedraPapelTijera;
   
-  public constructor()
+  public constructor(private servicioScore:ScoreService)
   {
       this.ruta="";
       this.jugador1 = new JugadorPiedraPapelTijera();
@@ -157,7 +158,10 @@ export class PiedraPapelTijeraComponent implements OnInit {
   public GuardarScore(){
     let nuevoScore:Score=new Score();
     nuevoScore.name=localStorage.getItem("usuarioLogin")??"Desconocido";
-    nuevoScore.score='jugador 1:' + this.jugador1 + '  jugador 2:'+this.jugador2.victorias;
+    nuevoScore.score='jugador uno= ' + this.jugador1.victorias + '  jugador dos= '+this.jugador2.victorias;
+    this.servicioScore.AgregarUno(nuevoScore);
+    alert('guardado');
+    
   }
 
 

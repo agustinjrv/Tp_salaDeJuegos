@@ -22,6 +22,7 @@ export class ScoreComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.servicioScore.CambiarRuta(this.rutaScore);
     this.item$ = this.servicioScore.ObtenerTodos().valueChanges();
   }
   
