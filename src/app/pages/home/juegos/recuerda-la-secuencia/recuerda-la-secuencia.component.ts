@@ -49,7 +49,7 @@ export class RecuerdaLaSecuenciaComponent implements OnInit {
 
   public GenerarNuevaSecuencia()
   {
-    
+    this.bloqueoPanel=true;
     this.mostrar=this.secuenciaOculta;
     let recibo=Math.floor(Math.random() * (9 - 1)) + 1;
     this.secuenciaComparar+=''+recibo;
@@ -57,6 +57,8 @@ export class RecuerdaLaSecuenciaComponent implements OnInit {
     
 
     setTimeout(()=>{
+      this.bloqueoPanel=false;
+      this.seleccionJugador='';
       this.secuenciaOculta=this.mostrar;
       this.mostrar='';
     },this.secuenciaComparar.length * 1000);
@@ -99,7 +101,7 @@ export class RecuerdaLaSecuenciaComponent implements OnInit {
 
   public EsCorrecto()
   {
-    this.seleccionJugador='';
+    
     this.puntos++;
     this.alert('success',"Muy bien ya vas: " + this.puntos,'top-left');
     
